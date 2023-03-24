@@ -21,9 +21,7 @@ const { body, validationResult } = require("express-validator");
     // ROUTE 2: add a new note using: POST "/api/notes/addnote"  //
     //-----------------------------------------------------------//
 
-    router.get(
-    "/addnote",
-    fetchuser,
+    router.post("/addnote",fetchuser,
     [
         body("title", "title must be atleast 3 characters").isLength({ min: 3 }),
         body("description", "Description must be atleast 5 characters").isLength({

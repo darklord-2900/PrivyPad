@@ -1,13 +1,8 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 const Navbar = () => {
-    let location = useLocation();    
-    useEffect(() => {
-      // Google Analytics
-        console.log(location.pathname);
-    }, [location]);
-
+    let location = useLocation();
     return (
         <>
         <div>
@@ -26,10 +21,6 @@ const Navbar = () => {
                 <Link className={`nav-link ${location.pathname==="/about"?"active":""}`} aria-current="page" to="/About">About</Link>
                 </li>
             </ul>
-            <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
             </div>
         </div>
     </nav>
