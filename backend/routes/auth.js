@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 const { findOne } = require('../models/User');
 var fetchuser=require('../middleware/fetchuser');
+let success= true;
 
 const JWT_secret="harryisagoodB$oy";
 
@@ -22,15 +23,15 @@ router.post('/createuser',[
         // if errors are present then bad request is returned
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            success=false;
+            return res.status(400).json({success, errors: errors.array() });
         }
-
         // checking whether user with same email exists
         try{
             let user=await User.findOne({email:req.body.email})
             console.log(user);
             if(user){
-                return req.status(400).json({error: "Sorry this email already exists"});
+                return req.status(400).json({success: false,error: "Sorry this email already exists"});
             }
             const salt=await bcrypt.genSalt();
             let secpass= await bcrypt.hash(req.body.password,salt);
@@ -47,7 +48,8 @@ router.post('/createuser',[
                 }
             }
         const authtoken=jwt.sign(data,JWT_secret);
-        console.log(authtoken);
+        let success=true;
+        console.log(success,authtoken);
         res.json({authtoken})    
         // .then(user => res.json(user))
         // .catch(err=>{console.log(err)
@@ -60,7 +62,7 @@ router.post('/createuser',[
 })
 
 //======================================================================================//
-//RROUTE 2: authenticate a user using: POST "/api/auth/login" No login required.        //
+//    RROUTE 2: authenticate a user using: POST "/api/auth/login" No login required.    //
 //======================================================================================//
 router.post('/login',[
     body('email','enter valid email').isEmail(),
@@ -86,7 +88,8 @@ router.post('/login',[
                 }
             }
             const authtoken=jwt.sign(data,JWT_secret);
-            res.json({authtoken})    
+            const success=true;
+            res.json({success,authtoken})    
         }
         catch(error){
             console.error(error.message)

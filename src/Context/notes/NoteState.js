@@ -9,7 +9,7 @@ const NoteState=(props)=>{
             method: "GET", 
             headers: {
                 "Content-Type": "application/json",
-                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxMzE5NTg0ZTQxNDA1NmJhODI3ZWEyIn0sImlhdCI6MTY3ODk3MzI3Mn0.oar7tvOMA9Y4iEMVw8OLeReV4-W2akcBTeUrmbfitj0"
+                "auth-token":localStorage.getItem("token")
             },
         });
         const json =await response.json();
@@ -25,7 +25,7 @@ const NoteState=(props)=>{
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxMzE5NTg0ZTQxNDA1NmJhODI3ZWEyIn0sImlhdCI6MTY3ODk3MzI3Mn0.oar7tvOMA9Y4iEMVw8OLeReV4-W2akcBTeUrmbfitj0"
+                        "auth-token":localStorage.getItem("token")
                     },
                     body: JSON.stringify({title,description,tag}),
                     });
@@ -41,12 +41,12 @@ const NoteState=(props)=>{
                     method: "PUT", 
                     headers: {
                         "Content-Type": "application/json",
-                        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxMzE5NTg0ZTQxNDA1NmJhODI3ZWEyIn0sImlhdCI6MTY3ODk3MzI3Mn0.oar7tvOMA9Y4iEMVw8OLeReV4-W2akcBTeUrmbfitj0"
+                        "auth-token":localStorage.getItem("token")
                     },
                     body: JSON.stringify({title,description,tag}),
                     });
-                    // const json= await response.json();
-                    // console.log(json);
+                    const json= await response.json();
+                    console.log(json);
                     let newNotes=await JSON.parse(JSON.stringify(notes))
                     // Logic to edit text in client 
                 for (let index = 0; index < newNotes.length; index++) {
@@ -67,7 +67,7 @@ const NoteState=(props)=>{
                     method: "DELETE", 
                     headers: {
                         "Content-Type": "application/json",
-                        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQxMzE5NTg0ZTQxNDA1NmJhODI3ZWEyIn0sImlhdCI6MTY3ODk3MzI3Mn0.oar7tvOMA9Y4iEMVw8OLeReV4-W2akcBTeUrmbfitj0"
+                        "auth-token":localStorage.getItem("token")
                     }
                     });
                 console.log("deleting the note present with id "+id);
