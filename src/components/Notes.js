@@ -62,7 +62,6 @@ import { useNavigate } from 'react-router-dom';
                             <label htmlFor="tag" className="form-label">Tag</label>
                             <input type="text" className="form-control" value={note.etag}id="etag" name='etag' onChange={onchange}/>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={handleclick}>Add this note</button>
                     </form>
                     </div>
                     <div className="modal-footer">
