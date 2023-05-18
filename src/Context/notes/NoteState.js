@@ -2,7 +2,7 @@
 import { useState } from "react";
 import NoteContext from "./NoteContext.js";
 const NoteState=(props)=>{
-    const host="https://privy-pad.vercel.app"
+    const host="http://localhost:5000"
     const getallnotes=async()=>{
         // API Call 
         const response = await fetch(`${host}/api/notes/fetchallnotes`, {

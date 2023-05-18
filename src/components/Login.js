@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = (props) => {
     const [credentials,setCedentials]=useState({email:"",password:""});
     let history=useNavigate();
-    const host="https://privy-pad.vercel.app"
+    const host="http://localhost:5000"
     const handleSubmit= async(e) =>{
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {
