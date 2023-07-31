@@ -14,6 +14,7 @@ server.listen(port,()=>{console.log('server setup working '+port)});
 
 app.use(cors())
 app.use(express.json())
+require('dotenv').config();
 
 // Available Routes 
 app.use('/api/auth',require('./routes/auth'))

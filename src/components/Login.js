@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+
 const Login = (props) => {
     const [credentials,setCedentials]=useState({email:"",password:""});
     let history=useNavigate();
-    const host="http://localhost:5000"
+    const host=process.env.REACT_APP_BASE_URL
+    // const host={host};
+    // const host='http://localhost:5000'
     const handleSubmit= async(e) =>{
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {
@@ -30,7 +33,7 @@ const Login = (props) => {
     }
     return (
         <div className='mt-3'>
-        <h2>Login to PrivyPad</h2>
+        <h2 className=' text-black text-2xl'>Login to PrivyPad</h2>
         <form onSubmit={handleSubmit}>
         <div className="mb-3">
             <label htmlFor="email" className="form-label">Email address</label>
@@ -41,7 +44,7 @@ const Login = (props) => {
             <label htmlFor="password" className="form-label">Password</label>
             <input type="password" className="form-control" value={credentials.password} onChange={onchange} id="password" name="password"/>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary text-blue-500">Submit</button>
         </form>
         </div>
     )
