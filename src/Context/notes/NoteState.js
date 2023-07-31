@@ -2,10 +2,13 @@
 import { useState } from "react";
 import NoteContext from "./NoteContext.js";
 const NoteState=(props)=>{
-    const host="http://localhost:5000"
+    // const host='http://localhost:5000'
+    // const host={host}
+    const host=process.env.REACT_APP_BASE_URL
+    // const host=process.env.BASE_URL
     const getallnotes=async()=>{
         // API Call 
-        const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/notes/fetchallnotes`, {
             method: "GET", 
             headers: {
                 "Content-Type": "application/json",

@@ -11,6 +11,7 @@ import { useState } from 'react';
 import LandingContent from './components/LandingContent';
 
 function App() {
+  // const url=process.env.REACT_APP_BASE_URL
   const [alert,setAlert]=useState(null);
   const showAlert=(message,type)=>{
     setAlert({
@@ -33,7 +34,7 @@ function App() {
         <Route path="/Home" element={<Home showAlert={showAlert} />} />
         <Route path="/About" element={<About />} />
         <Route path="/signup" element={<Signup showAlert={showAlert} />} />
-        <Route path="/login" element={<Login showAlert={showAlert}  />} />
+        <Route path="/login" element={<Login showAlert={showAlert}   />} />
       </Routes>
       </div>
     </Router>

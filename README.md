@@ -1,4 +1,3 @@
-A simple Notes Management Application with features to store data provided by different users to keep their notes stored. 
 PrivyPad is made by following MERN Stack principles of Web Development.
 <h4>The basic operations of this application are :</h4>
 <ol>
@@ -13,3 +12,4 @@ PrivyPad is made by following MERN Stack principles of Web Development.
  <li> Then open a paralell terminal and go to the backend folder and run command in terminal -->> nodemon .\index.js --> this will run the server side scripts
     and the backend will be live and now you can use this app happily :-) <\li>
 </ol>
+
