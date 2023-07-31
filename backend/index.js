@@ -8,7 +8,7 @@ const http = require('http');
 connectToMongo();
 
 const app = express()
-const port = 5000
+const port = 3001
 const server= http.createServer(app);
 server.listen(port,()=>{console.log('server setup working '+port)});
 
