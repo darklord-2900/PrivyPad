@@ -50,8 +50,8 @@ const NoteState=(props)=>{
                     },
                     body: JSON.stringify({title,description,tag}),
                     });
-                    // const json= await response.json();
-                    // console.log(json);
+                    const json= await response.json();
+                    console.log(json);
                     let newNotes=await JSON.parse(JSON.stringify(notes))
                     // Logic to edit text in client 
                 for (let index = 0; index < newNotes.length; index++) {
@@ -78,8 +78,8 @@ const NoteState=(props)=>{
                 console.log("deleting the note present with id "+id);
                 const newNotes=notes.filter((note)=>{return note._id!==id})
                 setNotes(newNotes);
-                    // const json=await response.json();
-                    // console.log(json);
+                    const json=await response.json();
+                    console.log(json);
             }
     return(
         <NoteContext.Provider value={{notes,setNotes,addNote,deleteNote,editNote,getallnotes}}>
