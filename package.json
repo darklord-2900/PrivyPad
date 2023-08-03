@@ -13,7 +13,6 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-
   },
   "scripts": {
     "start": "env-cmd -f .env.local react-scripts start",
